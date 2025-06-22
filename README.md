@@ -29,3 +29,5 @@ Noting some of the small nuances that I've had to pick up learning shell syntax.
 Since shell scripts support about 100 different ways to do everything, I wanted to list some of the conventions that I'm trying to stick to for consistency.
 - using `#!/bin/bash` for a balance between portability and user-friendly commands.
 - `"${variable_name}"` when referencing variables
+- using snake case (all lower case letters with underscores between words) when ever possible.
+I think it's a little easier to read than camel or kebab

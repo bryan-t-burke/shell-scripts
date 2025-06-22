@@ -21,4 +21,10 @@ examples:
 "
 
 # $1 is the name of the file we are updating, no other parameters are used
-chmod 700 "$1"
+file_name=${1}
+current_control_modes=$(./get_control_mode_numbers.sh "${file_name}")
+
+# we want to preserve the control modes for the other layers
+other_control_modes="${current_control_modes:1}"
+
+chmod 7"${other_control_modes}" "${file_name}"

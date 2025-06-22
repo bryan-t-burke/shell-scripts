@@ -4,13 +4,24 @@
 # also sets local user read, write, and execute
 # $1 new script file name
 
-# to-do: add check for if $1 already ends with .sh
+file_name="${1}"
 
-touch "$1.sh"
+# we only care about file types that end in .sh
+file_type=${1:(-3):3}
+
+# if the new file name doesn't already end in .sh, append it
+if [[ ".sh" != "${file_type}" ]]; then
+  file_name=${1}".sh"
+fi
+
+# make the file
+touch "${file_name}"
 {
+  # preload the bash version
   echo "#!/bin/bash"
   echo ""
-} >> "$1.sh"
+} >> "${file_name}"
 
-# to-do: won't work if the set_local_read_write_execute.sh script isn't in the same directory
-./set_local_read_write_execute.sh "$1.sh"
+# set execute permissions
+# to-do: make it less reliant on the directory structure
+./set_local_read_write_execute.sh "${file_name}"
