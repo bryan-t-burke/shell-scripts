@@ -42,11 +42,11 @@ while read -r type variable; do
   } >> properties
   # update temporary functions file
   {
-    echo "${indent}""public ""${type}"" get""$(../capital_first_letter.sh "${variable}")""() {"
+    echo "${indent}""public ""${type}"" get""$(../string_manipulation/capital_first_letter.sh "${variable}")""() {"
     echo "${indent}""${indent}""return ""${variable}"";"
     echo "${indent}""}"
     echo ""
-    echo "${indent}""public void set""$(../capital_first_letter.sh "${variable}""")(""${type}"" ""${variable}"") {"
+    echo "${indent}""public void set""$(../string_manipulation/capital_first_letter.sh "${variable}""")(""${type}"" ""${variable}"") {"
     echo "${indent}""${indent}""this.""${variable}"" = ""${variable}"";"
     echo "${indent}""}"
     echo ""
